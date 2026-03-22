@@ -488,15 +488,19 @@ header {
 #lot1 {
   top: 55%;
   left: 40%;
-  background: linear-gradient(135deg, #ffd700, #ffd700);
-  color: black;
+  color: white;
 }
 
 #lot2 {
-  top: 81%;
+  top: 76%;
   left: 42%;
-  background: linear-gradient(135deg, #ffd700, #ffd700);
-  color: black;
+  color: white;
+}
+
+@media (max-width: 790px) {
+  #lot2 {
+    top: 74%;
+  }
 }
 
 #lot3 {
@@ -514,8 +518,7 @@ header {
 #lot5 {
   top: 67%;
   left: 80%;
-  background: linear-gradient(135deg, #ffd700, #ffd700);
-  color: black;
+  color: white;
 }
 
 /* Mobile Layout */
@@ -711,7 +714,7 @@ header {
   }
 
   #lot2 {
-    top: 90%;
+    top: 85%;
     left: 41%;
   }
 
