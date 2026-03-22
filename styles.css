@@ -1,0 +1,708 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6f8;
+  text-align: center;
+}
+
+header {
+  background: linear-gradient(135deg, #003366, #0055aa);
+  color: white;
+  padding: 15px;
+}
+
+header img {
+  max-width: 280px;
+  width: 90%;
+}
+
+.container {
+  padding: 20px;
+}
+
+.map-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  padding-bottom: 140px;
+}
+
+.map-wrapper img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Arrow Overlay */
+
+.arrow-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.arrow-layer path {
+  fill: none;
+  stroke: #ff3b3b;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0px 0px 6px rgba(255, 0, 0, 0.7));
+}
+
+/* 1. The Base Style (Your existing code) */
+.lot-button,
+.building-button {
+  position: absolute;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 3px solid white;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  will-change: transform;
+  
+  /* ADD THIS: Hide by default */
+  display: none; 
+}
+
+/* 2. The Visibility Toggle */
+/* This MUST come after the base style to override 'display: none' */
+.lot-button.visible {
+  display: block; 
+}
+
+/* 3. Your specific colors (Your existing code) */
+.lot-button {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hover + Active maintain centering */
+.lot-button:hover,
+.building-button:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.lot-button:active,
+.building-button:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.lot-button.selected {
+  outline: 4px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 18px rgba(0, 198, 255, 0.9),
+    0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Animations */
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-5px);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
+/* Exact Map Positions */
+
+#lot1 {
+  top: 55%;
+  left: 40%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
+#lot2 {
+  top: 81%;
+  left: 42%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
+#lot3 {
+  top: 79%;
+  left: 83%;
+}
+
+#lot4 {
+  top: 59.5%;
+  left: 84%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
+#building1P {
+  top: 65.3%;
+  left: 57.8%;
+}
+
+#lot5 {
+  top: 68.5%;
+  left: 81%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
+/* #lot6 {
+  top: 59.5%;
+  left: 84%;
+  background: linear-gradient(135deg, #FFD700, #FFD700);
+  color: black;
+} */
+
+#lot6 {
+  top: 62%;
+  left: 58%;
+}
+
+/* Directions Panel */
+
+.directions-panel {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: min(420px, calc(100% - 32px));
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 12px 12px 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dp-title {
+  font-weight: 900;
+  font-size: 14px;
+  color: #0b1f3a;
+  margin-bottom: 10px;
+}
+
+.dp-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dp-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.dp-btn:active {
+  transform: scale(0.96);
+}
+
+.dp-lot {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+}
+
+.dp-1p {
+  background: linear-gradient(135deg, #ff4b4b, #cc0000);
+  color: white;
+}
+
+.dp-clear {
+  background: #eef2f7;
+  color: #0b1f3a;
+}
+
+.dp-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.dp-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(11, 31, 58, 0.75);
+}
+
+/* Info Panel and Accordion */
+
+.info-panel {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.accordion-btn {
+  width: 100%;
+  text-align: left;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  background: linear-gradient(135deg, #e8f2ff, #d0e7ff);
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+.accordion-btn:hover {
+  background: linear-gradient(135deg, #cce4ff, #b3dbff);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #f9fcff;
+  padding: 0 14px;
+  border-left: 3px solid #0072ff;
+  border-radius: 0 0 8px 8px;
+  transition:
+    max-height 0.4s ease,
+    padding 0.3s ease;
+  font-size: 14px;
+}
+
+.accordion-content.active {
+  padding: 12px 14px;
+}
+
+/* Footer */
+
+.site-footer {
+  margin-top: 60px;
+  background: linear-gradient(135deg, #002244, #003366);
+  color: white;
+  padding: 30px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 60%
+  );
+  animation: footerGlow 8s linear infinite;
+}
+
+@keyframes footerGlow {
+  from {
+    transform: translate(-25%, -25%);
+  }
+
+  to {
+    transform: translate(25%, 25%);
+  }
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-logo {
+  width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.1);
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.creator {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.footer-right {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.social-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  width: 26px;
+  height: 26px;
+  fill: white;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover .social-icon {
+  transform: scale(1.3);
+  fill: #00c6ff;
+  filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.8));
+}
+
+/* Mobile Layout */
+
+@media (max-width: 768px) {
+  .map-wrapper {
+    padding-bottom: 0;
+  }
+
+  body {
+    padding-bottom: 150px;
+  }
+
+  #lot1 {
+    top: 60%;
+    left: 40%;
+  }
+
+  #lot2 {
+    top: 89%;
+    left: 42%;
+  }
+
+  #lot3 {
+    top: 85.5%;
+    left: 83.5%;
+  }
+
+  #lot4 {
+    top: 65%;
+    left: 83.2%;
+  }
+
+  #lot5 {
+    top: 75%;
+    left: 81%;
+  }
+
+  #building1P {
+    top: 71.5%;
+    left: 59%;
+  }
+
+  #lot6 {
+    top: 68%;
+    left: 58%;
+  }
+
+  .lot-button,
+  .building-button {
+    font-size: 9px;
+    padding: 7px 9px;
+    border-width: 2px;
+    border-radius: 18px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  .lot-button,
+  .building-button {
+    font-size: 8px;
+    padding: 5px 7px;
+    border-width: 2px;
+    border-radius: 16px;
+  }
+
+  #lot4 {
+    left: 82%;
+  }
+
+  #lot5 {
+    left: 80.5%;
+  }
+
+  #lot6 {
+    top: 68%;
+    left: 58%;
+  }
+}
+
+@media (max-width: 300px) {
+  .lot-button,
+  .building-button {
+    font-size: 6px;
+    padding: 3px 5px;
+    border-width: 1px;
+    border-radius: 12px;
+  }
+
+  #lot1 {
+    top: 60%;
+    left: 39%;
+  }
+
+  #lot2 {
+    top: 90%;
+    left: 41%;
+  }
+
+  #lot3 {
+    top: 87%;
+    left: 84%;
+  }
+
+  #lot4 {
+    top: 66%;
+    left: 80%;
+  }
+
+  #lot5 {
+    top: 76%;
+    left: 79%;
+  }
+
+  #lot6 {
+    top: 65%;
+    left: 79%;
+  }
+
+  #building1P {
+    top: 72%;
+    left: 58%;
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+  align-items: flex-start;
+}
+
+header {
+  position: relative;
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Desktop Filter Panel */
+.filter-panel {
+  width: 260px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e8f2ff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-header h3 {
+  margin: 0;
+  color: #003366;
+  font-size: 18px;
+}
+
+.close-filter {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.filter-label:hover {
+  background: #f4f6f8;
+}
+
+.filter-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #0072ff; /* Modern blue checkbox */
+}
+
+/* Temporary Positions for testing (Adjust these to match your map!) */
+.feature-firstaid {
+  top: 60%;
+  left: 50%;
+}
+.feature-merch {
+  top: 62%;
+  left: 55%;
+}
+.feature-restroom {
+  top: 68%;
+  left: 52%;
+}
+.feature-accessible {
+  top: 70%;
+  left: 48%;
+}
+.feature-checkin {
+  top: 65%;
+  left: 65%;
+}
+
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .map-wrapper {
+    width: 100%;
+  }
+
+  /* Slide-out Mobile Menu */
+  .filter-panel {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 260px;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .filter-panel.open {
+    left: 0;
+  }
+
+  .filter-overlay.active {
+    display: block;
+  }
+
+  .close-filter {
+    display: block;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+    padding-right: 60px;
+    text-align: left;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    left: auto;
+    font-size: 36px;
+    z-index: 1100;
+    background: #003366;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+}
