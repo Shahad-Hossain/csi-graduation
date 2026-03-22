@@ -432,25 +432,46 @@ header {
 }
 
 /* Exact Map Positions */
+.feature-food {
+  top: 58%;
+  left: 57%;
+}
+
+.feature-family-checkin {
+  top: 63%;
+  left: 42%;
+}
+
 .feature-firstaid {
-  top: 60%;
-  left: 50%;
+  top: 57%;
+  left: 33%;
 }
 .feature-merch {
-  top: 62%;
-  left: 55%;
+  top: 57%;
+  left: 50%;
 }
-.feature-restroom {
-  top: 68%;
-  left: 52%;
+.feature-restroom-1 {
+  top: 63%;
+  left: 60%;
 }
+
+.feature-restroom-2 {
+  top: 57%;
+  left: 40%;
+}
+
+.feature-restroom-3 {
+  top: 70%;
+  left: 40%;
+}
+
 .feature-accessible {
   top: 70%;
   left: 48%;
 }
 .feature-checkin {
-  top: 65%;
-  left: 65%;
+  top: 57%;
+  left: 74%;
 }
 
 .filter-overlay {
@@ -491,8 +512,8 @@ header {
 }
 
 #lot5 {
-  top: 68.5%;
-  left: 81%;
+  top: 67%;
+  left: 80%;
   background: linear-gradient(135deg, #ffd700, #ffd700);
   color: black;
 }
@@ -610,6 +631,45 @@ header {
     background: #003366;
     padding: 5px 10px;
     border-radius: 8px;
+  }
+
+  /* Exact Map Positions */
+  .feature-food {
+    top: 66.5%;
+    left: 53%;
+  }
+
+  .feature-checkin {
+    top: 65%;
+    left: 74.3%;
+  }
+
+  .feature-family-checkin {
+    top: 63%;
+    left: 42%;
+  }
+
+  .feature-firstaid {
+    top: 64%;
+    left: 35%;
+  }
+  .feature-merch {
+    top: 66%;
+    left: 48%;
+  }
+  .feature-restroom-1 {
+    top: 71.5%;
+    left: 60%;
+  }
+
+  .feature-restroom-2 {
+    top: 65%;
+    left: 40%;
+  }
+
+  .feature-restroom-3 {
+    top: 78%;
+    left: 40%;
   }
 }
 

@@ -1,32 +1,50 @@
-const lots = {
-  lot1: "Parking 1, 70 Lovell Ave, Staten Island, NY 10314",
-  lot2: "Parking 2, Staten Island, NY 10314",
-  lot3: "Parking 3, Loop Rd, Staten Island, NY 10314",
-  lot4: "40.60075, -74.14684",
-  lot5: "40.59901, -74.14682",
-  lot6: "40.60037040321241, -74.14649686354696",
-};
+let locations = {};
 
-const buildings = {
-  onePCoords: "40.59969,-74.1496471",
-};
-
-const lotButtons = document.querySelectorAll(`[data-category="lots"]`);
-
-lotButtons.forEach((lot) => {
-  lot.addEventListener("click", (e) => {
-    const lotId = e.target.id;
-
-    openDirectionsToDestination((lot = lotId));
+fetch("locations.json")
+  .then((response) => response.json())
+  .then((data) => {
+    locations = data;
+    initializeMapButtons();
+  })
+  .catch((error) => {
+    console.error("Error loading locations:", error);
   });
-});
+
+function initializeMapButtons() {
+  const mapButtons = document.querySelectorAll("[data-category]");
+
+  mapButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const buttonId = e.currentTarget.id;
+      const category = e.currentTarget.dataset.category;
+
+      let groupKey = category === "lots" ? "lots" : "walking";
+      let destinationKey = buttonId;
+
+      const group = locations[groupKey];
+      const destination = group?.points?.[destinationKey];
+
+      if (!destination) {
+        console.error("No destination found for:", destinationKey);
+        return;
+      }
+
+      openDirectionsToDestination(destination, group.travelMode);
+    });
+  });
+}
 
 // --- URL helpers ---
-function openDirectionsToDestination(lot, travelmode = "driving") {
-  const destination = lots[lot];
+function openDirectionsToDestination(destination, travelMode = "driving") {
+  if (!destination) {
+    console.error("No destination provided.");
+    return;
+  }
+
   const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
     destination,
-  )}&travelmode=${travelmode}`;
+  )}&travelmode=${encodeURIComponent(travelMode)}`;
+
   window.open(url, "_blank");
 }
 
