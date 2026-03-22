@@ -7,24 +7,19 @@ const lots = {
   lot6: "40.60037040321241, -74.14649686354696",
 };
 
-const buildings = { 
+const buildings = {
   onePCoords: "40.59969,-74.1496471",
-}
+};
 
-const mapWrapper = document.getElementById("mapWrapper");
-const lotButtons = document.querySelectorAll(
-  `[data-category="lots"]`,
-);
-
-console.log(lotButtons);
+const lotButtons = document.querySelectorAll(`[data-category="lots"]`);
 
 lotButtons.forEach((lot) => {
   lot.addEventListener("click", (e) => {
     const lotId = e.target.id;
-    
-    openDirectionsToDestination(lot=lotId);
-  })
-})
+
+    openDirectionsToDestination((lot = lotId));
+  });
+});
 
 // --- URL helpers ---
 function openDirectionsToDestination(lot, travelmode = "driving") {
@@ -42,6 +37,11 @@ const filterOverlay = document.getElementById("filterOverlay");
 const filterCheckboxes = document.querySelectorAll(".filter-checkbox");
 
 // Toggle mobile menu
+function handleHamBurger() {
+  filterPanel.classList.toggle("open");
+  filterOverlay.classList.toggle("active");
+}
+
 function openMobileMenu() {
   filterPanel.classList.add("open");
   filterOverlay.classList.add("active");
@@ -52,18 +52,15 @@ function closeMobileMenu() {
   filterOverlay.classList.remove("active");
 }
 
-if (hamburgerBtn) hamburgerBtn.addEventListener("click", openMobileMenu);
+if (hamburgerBtn) hamburgerBtn.addEventListener("click", handleHamBurger);
 if (closeFilterBtn) closeFilterBtn.addEventListener("click", closeMobileMenu);
 if (filterOverlay) filterOverlay.addEventListener("click", closeMobileMenu);
 
 filterCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", (e) => {
-    // .trim() ensures "lots " becomes "lots"
     const categoryToToggle = e.target.value.trim();
     const isChecked = e.target.checked;
 
-    // This selects any element with the matching category,
-    // regardless of whether its class is lot-button or map-feature
     const targets = document.querySelectorAll(
       `[data-category="${categoryToToggle}"]`,
     );
@@ -75,5 +72,27 @@ filterCheckboxes.forEach((checkbox) => {
         el.classList.remove("visible");
       }
     });
+  });
+});
+
+// Accordion
+document.querySelectorAll(".accordion-btn").forEach((button) => {
+  button.addEventListener("click", function () {
+    const content = this.nextElementSibling;
+
+    document.querySelectorAll(".accordion-content").forEach((item) => {
+      if (item !== content) {
+        item.style.maxHeight = null;
+        item.classList.remove("active");
+      }
+    });
+
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      content.classList.remove("active");
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      content.classList.add("active");
+    }
   });
 });

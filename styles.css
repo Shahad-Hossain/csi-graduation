@@ -52,7 +52,6 @@ header img {
   filter: drop-shadow(0px 0px 6px rgba(255, 0, 0, 0.7));
 }
 
-/* 1. The Base Style (Your existing code) */
 .lot-button,
 .building-button {
   position: absolute;
@@ -67,25 +66,20 @@ header img {
   transform: translate(-50%, -50%);
   transform-origin: center;
   will-change: transform;
-  
-  /* ADD THIS: Hide by default */
-  display: none; 
+
+  display: none;
 }
 
-/* 2. The Visibility Toggle */
-/* This MUST come after the base style to override 'display: none' */
 .lot-button.visible {
-  display: block; 
+  display: block;
 }
 
-/* 3. Your specific colors (Your existing code) */
 .lot-button {
   background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: white;
   animation: float 3s ease-in-out infinite;
 }
 
-/* Hover + Active maintain centering */
 .lot-button:hover,
 .building-button:hover {
   transform: translate(-50%, -50%) scale(1.15);
@@ -131,58 +125,6 @@ header img {
   100% {
     box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
   }
-}
-
-/* Exact Map Positions */
-
-#lot1 {
-  top: 55%;
-  left: 40%;
-  background: linear-gradient(135deg, #ffd700, #ffd700);
-  color: black;
-}
-
-#lot2 {
-  top: 81%;
-  left: 42%;
-  background: linear-gradient(135deg, #ffd700, #ffd700);
-  color: black;
-}
-
-#lot3 {
-  top: 79%;
-  left: 83%;
-}
-
-#lot4 {
-  top: 59.5%;
-  left: 84%;
-  background: linear-gradient(135deg, #ffd700, #ffd700);
-  color: black;
-}
-
-#building1P {
-  top: 65.3%;
-  left: 57.8%;
-}
-
-#lot5 {
-  top: 68.5%;
-  left: 81%;
-  background: linear-gradient(135deg, #ffd700, #ffd700);
-  color: black;
-}
-
-/* #lot6 {
-  top: 59.5%;
-  left: 84%;
-  background: linear-gradient(135deg, #FFD700, #FFD700);
-  color: black;
-} */
-
-#lot6 {
-  top: 62%;
-  left: 58%;
 }
 
 /* Directions Panel */
@@ -264,6 +206,7 @@ header img {
   background: white;
   padding: 20px;
   border-radius: 12px;
+  margin-top: -110px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -395,15 +338,177 @@ header img {
   filter: drop-shadow(0 0 8px rgba(0, 198, 255, 0.8));
 }
 
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+  align-items: flex-start;
+}
+
+header {
+  position: relative;
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Desktop Filter Panel */
+.filter-panel {
+  width: 260px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.content-wrapper aside {
+  margin-top: 275px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e8f2ff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-header h3 {
+  margin: 0;
+  color: #003366;
+  font-size: 18px;
+}
+
+.close-filter {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.filter-label:hover {
+  background: #f4f6f8;
+}
+
+.filter-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #0072ff;
+}
+
+/* Exact Map Positions */
+.feature-firstaid {
+  top: 60%;
+  left: 50%;
+}
+.feature-merch {
+  top: 62%;
+  left: 55%;
+}
+.feature-restroom {
+  top: 68%;
+  left: 52%;
+}
+.feature-accessible {
+  top: 70%;
+  left: 48%;
+}
+.feature-checkin {
+  top: 65%;
+  left: 65%;
+}
+
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+#lot1 {
+  top: 55%;
+  left: 40%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
+#lot2 {
+  top: 81%;
+  left: 42%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
+#lot3 {
+  top: 76%;
+  left: 83%;
+}
+
+#lot4 {
+  top: 54%;
+  left: 84%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
+#lot5 {
+  top: 68.5%;
+  left: 81%;
+  background: linear-gradient(135deg, #ffd700, #ffd700);
+  color: black;
+}
+
 /* Mobile Layout */
 
 @media (max-width: 768px) {
-  .map-wrapper {
-    padding-bottom: 0;
+  .info-panel {
+    margin-top: 0px;
   }
 
-  body {
-    padding-bottom: 150px;
+  .content-wrapper aside {
+    margin-top: 0px;
+  }
+  .map-wrapper {
+    padding-bottom: 0;
   }
 
   #lot1 {
@@ -456,6 +561,55 @@ header img {
 
   .footer-logo {
     width: 90px;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .map-wrapper {
+    width: 100%;
+  }
+
+  /* Slide-out Mobile Menu */
+  .filter-panel {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 260px;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .filter-panel.open {
+    left: 0;
+  }
+
+  .filter-overlay.active {
+    display: block;
+  }
+
+  .close-filter {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    left: auto;
+    font-size: 36px;
+    z-index: 1100;
+    background: #003366;
+    padding: 5px 10px;
+    border-radius: 8px;
   }
 }
 
@@ -524,185 +678,5 @@ header img {
   #building1P {
     top: 72%;
     left: 58%;
-  }
-}
-
-.content-wrapper {
-  display: flex;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto 20px auto;
-  align-items: flex-start;
-}
-
-header {
-  position: relative;
-}
-
-.hamburger {
-  display: none;
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-/* Desktop Filter Panel */
-.filter-panel {
-  width: 260px;
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  flex-shrink: 0;
-}
-
-.filter-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #e8f2ff;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-}
-
-.filter-header h3 {
-  margin: 0;
-  color: #003366;
-  font-size: 18px;
-}
-
-.close-filter {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #666;
-  cursor: pointer;
-}
-
-.filter-options {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.filter-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  color: #333;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background 0.2s ease;
-}
-
-.filter-label:hover {
-  background: #f4f6f8;
-}
-
-.filter-checkbox {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: #0072ff; /* Modern blue checkbox */
-}
-
-/* Temporary Positions for testing (Adjust these to match your map!) */
-.feature-firstaid {
-  top: 60%;
-  left: 50%;
-}
-.feature-merch {
-  top: 62%;
-  left: 55%;
-}
-.feature-restroom {
-  top: 68%;
-  left: 52%;
-}
-.feature-accessible {
-  top: 70%;
-  left: 48%;
-}
-.feature-checkin {
-  top: 65%;
-  left: 65%;
-}
-
-.filter-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
-}
-
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .map-wrapper {
-    width: 100%;
-  }
-
-  /* Slide-out Mobile Menu */
-  .filter-panel {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 260px;
-    height: 100vh;
-    border-radius: 0;
-    z-index: 1000;
-    transition: left 0.3s ease-in-out;
-  }
-
-  .filter-panel.open {
-    left: 0;
-  }
-
-  .filter-overlay.active {
-    display: block;
-  }
-
-  .close-filter {
-    display: block;
-  }
-
-  header h1 {
-    font-size: 1.1rem;
-    padding-right: 60px;
-    text-align: left;
-  }
-
-  .hamburger {
-    display: block;
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    left: auto;
-    font-size: 36px;
-    z-index: 1100;
-    background: #003366;
-    padding: 5px 10px;
-    border-radius: 8px;
   }
 }

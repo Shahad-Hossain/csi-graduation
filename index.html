@@ -65,48 +65,46 @@
           <img src="img/campus map.png" alt="CSI Campus Map" />
           <svg class="arrow-layer" id="arrowLayer"></svg>
 
-          <div class="feature-lots">
-            <button
-              class="lot-button visible"
-              id="lot1"
-              data-category="lots"
-              type="button"
-            >
-              🅿️ Lot 1
-            </button>
-            <button
-              class="lot-button visible"
-              id="lot2"
-              data-category="lots"
-              type="button"
-            >
-              🅿️ Lot 2
-            </button>
-            <button
-              class="lot-button visible"
-              id="lot3"
-              data-category="lots"
-              type="button"
-            >
-              🅿️ Lot 3
-            </button>
-            <button
-              class="lot-button visible"
-              id="lot4"
-              data-category="lots"
-              type="button"
-            >
-              🅿️ Lot 4
-            </button>
-            <button
-              class="lot-button visible"
-              id="lot5"
-              data-category="lots"
-              type="button"
-            >
-              🅿️ Extra Lot
-            </button>
-          </div>
+          <button
+            class="lot-button visible"
+            id="lot1"
+            data-category="lots"
+            type="button"
+          >
+            🅿️ Lot 1
+          </button>
+          <button
+            class="lot-button visible"
+            id="lot2"
+            data-category="lots"
+            type="button"
+          >
+            🅿️ Lot 2
+          </button>
+          <button
+            class="lot-button visible"
+            id="lot3"
+            data-category="lots"
+            type="button"
+          >
+            🅿️ Lot 3
+          </button>
+          <button
+            class="lot-button visible"
+            id="lot4"
+            data-category="lots"
+            type="button"
+          >
+            🅿️ Lot 4
+          </button>
+          <button
+            class="lot-button visible"
+            id="lot5"
+            data-category="lots"
+            type="button"
+          >
+            🅿️ Extra Lot
+          </button>
 
           <button
             class="lot-button feature-firstaid"
@@ -147,6 +145,58 @@
       </div>
     </div>
 
+        <!-- Info panel -->
+    <div class="info-panel">
+      <h2>Parking Lot Information</h2>
+
+      <div class="accordion">
+        <button class="accordion-btn" type="button">🅿️ Lot 1</button>
+        <div class="accordion-content">
+          Leads to the front entrance, slightly elevated terrain, ~5-minute walk
+        </div>
+
+        <button class="accordion-btn" type="button">🅿️ Lot 2</button>
+        <div class="accordion-content">
+          Leads to the front entrance, slightly elevated terrain, ~5-minute walk
+        </div>
+
+
+        <button class="accordion-btn" type="button">🅿️ Lot 3</button>
+        <div class="accordion-content">
+          Leads to the back entrance, ~8-minute walk not preferred
+        </div>
+
+        <button class="accordion-btn" type="button">🅿️ Lot 4</button>
+        <div class="accordion-content">
+          Leads to the back entrance, ~5-minute walk
+        </div>
+
+        <button class="accordion-btn" type="button">🅿️ Extra Lot</button>
+        <div class="accordion-content">
+          Leads to the back entrance, ~5-minute walk.
+        </div>
+
+        <button class="accordion-btn" type="button">♿ Disabled Parking & Loading</button>
+        <div class="accordion-content">
+          Leads to the disabled parking/loading area located on the side of the building. Google maps doesn't directly 
+          allow to direct anyone there by driving so make a turn at the end of the Google Maps directions and then go straight until you find the 
+          parking lot.
+        </div>
+      </div>
+
+      <p><strong>Note:</strong> Click the parking lot buttons above for Google Maps directions.</p>
+
+      <h3>Accessible Parking Directions</h3>
+      <ol>
+        <li>From the entrance of 1P, follow the road north.</li>
+        <li>Turn right onto the campus service road.</li>
+        <li>Take the second right turn.</li>
+        <li>Look for the Accessible Parking marking.</li>
+      </ol>
+      <p><strong>(Limited spots available)</strong></p>
+    </div>
+  </div>
+
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-content">
@@ -155,7 +205,7 @@
         </div>
 
         <div class="footer-center">
-          <p>CSI 1P Directional Map</p>
+          <p>CSI Commencement Map</p>
           <p class="creator">Created by <strong>Shahad Hossain</strong></p>
 
           <div class="social-links">
