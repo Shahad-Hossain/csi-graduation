@@ -114,3 +114,13 @@ document.querySelectorAll(".accordion-btn").forEach((button) => {
     }
   });
 });
+
+function clearAll() {
+  document.querySelectorAll(".filter-checkbox").forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  document.querySelectorAll("[data-category]").forEach((el) => {
+    el.classList.remove("visible");
+  });
+}
