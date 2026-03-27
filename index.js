@@ -41,10 +41,26 @@ function openDirectionsToDestination(destination, travelMode = "driving") {
     return;
   }
 
-  const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-    destination,
-  )}&travelmode=${encodeURIComponent(travelMode)}`;
+  const encodedDest = encodeURIComponent(destination);
 
+  // Detect if the user is on an iOS device (iPhone, iPad, iPod) or a Mac with touch
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+
+  let url = "";
+
+  if (isIOS) {
+    // Apple Maps routing. 'dirflg' uses 'd' for driving, 'w' for walking, 'r' for transit
+    const appleMode = travelMode === "walking" ? "w" : "d";
+    // Using http://maps.apple.com forces Apple Maps on iOS devices
+    url = `http://maps.apple.com/?daddr=${encodedDest}&dirflg=${appleMode}`;
+  } else {
+    // Universal Google Maps Routing (Works on Android, Windows, Mac Desktop)
+    // On Android, this triggers the OS intent chooser so users can pick Waze, Google Maps, etc.
+    url = `https://www.google.com/maps/dir/?api=1&destination=${encodedDest}&travelmode=${encodeURIComponent(travelMode)}`;
+  }
+
+  // Open the link. Mobile OS's will intercept this and launch the native app.
   window.open(url, "_blank");
 }
 
@@ -53,26 +69,6 @@ const closeFilterBtn = document.getElementById("closeFilterBtn");
 const filterPanel = document.getElementById("filterPanel");
 const filterOverlay = document.getElementById("filterOverlay");
 const filterCheckboxes = document.querySelectorAll(".filter-checkbox");
-
-// Toggle mobile menu
-function handleHamBurger() {
-  filterPanel.classList.toggle("open");
-  filterOverlay.classList.toggle("active");
-}
-
-function openMobileMenu() {
-  filterPanel.classList.add("open");
-  filterOverlay.classList.add("active");
-}
-
-function closeMobileMenu() {
-  filterPanel.classList.remove("open");
-  filterOverlay.classList.remove("active");
-}
-
-if (hamburgerBtn) hamburgerBtn.addEventListener("click", handleHamBurger);
-if (closeFilterBtn) closeFilterBtn.addEventListener("click", closeMobileMenu);
-if (filterOverlay) filterOverlay.addEventListener("click", closeMobileMenu);
 
 filterCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", (e) => {
