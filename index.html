@@ -1,37 +1,29 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSI Commencement Directions</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/x-icon" href="img/icon.jpg" />
-  </head>
 
-  <body>
-    <header>
-      <button id="hamburgerBtn" class="hamburger" aria-label="Menu">☰</button>
-      <img src="img/logo.png" alt="College of Staten Island Logo" />
-      <h1>Computer Science CSI Commencement Instructions</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSI Commencement Directions</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/x-icon" href="img/icon.jpg" />
+</head>
 
-    <div class="filter-overlay" id="filterOverlay"></div>
+<body>
+  <header>
+    <img src="img/logo.png" alt="College of Staten Island Logo" />
+    <h1>Computer Science CSI Commencement Instructions</h1>
+  </header>
 
     <div class="container">
       <div class="content-wrapper">
         <aside class="filter-panel" id="filterPanel">
           <div class="filter-header">
             <h3>Map Filters</h3>
-            <button id="closeFilterBtn" class="close-filter">×</button>
           </div>
           <div class="filter-options">
             <label class="filter-label">
-              <input
-                type="checkbox"
-                class="filter-checkbox"
-                value="lots"
-                checked
-              />
+              <input type="checkbox" class="filter-checkbox" value="lots" checked />
               🅿️ Parking Lots
             </label>
             <label class="filter-label">
@@ -46,20 +38,12 @@
               <input type="checkbox" class="filter-checkbox" value="food" />
               🍔 Food
             </label>
-            <!-- <label class="filter-label">
-              <input type="checkbox" class="filter-checkbox" value="restroom" />
-              🚻 Restrooms
-            </label> -->
             <label class="filter-label">
               <input type="checkbox" class="filter-checkbox" value="checkin" />
               📍 Graduates Check-In
             </label>
             <label class="filter-label">
-              <input
-                type="checkbox"
-                class="filter-checkbox"
-                value="family-checkin"
-              />
+              <input type="checkbox" class="filter-checkbox" value="family-checkin" />
               👪 Family Check-In
             </label>
 
@@ -71,104 +55,38 @@
           <img src="img/campus map.png" alt="CSI Campus Map" />
           <svg class="arrow-layer" id="arrowLayer"></svg>
 
-          <button
-            class="lot-button visible"
-            id="lot1"
-            data-category="lots"
-            type="button"
-          >
+          <button class="lot-button visible" id="lot1" data-category="lots" type="button">
             🅿️ Lot 1
           </button>
-          <button
-            class="lot-button visible"
-            id="lot2"
-            data-category="lots"
-            type="button"
-          >
+          <button class="lot-button visible" id="lot2" data-category="lots" type="button">
             🅿️ Lot 2
           </button>
-          <button
-            class="lot-button visible"
-            id="lot3"
-            data-category="lots"
-            type="button"
-          >
+          <button class="lot-button visible" id="lot3" data-category="lots" type="button">
             🅿️ Lot 3
           </button>
-          <button
-            class="lot-button visible"
-            id="lot4"
-            data-category="lots"
-            type="button"
-          >
+          <button class="lot-button visible" id="lot4" data-category="lots" type="button">
             🅿️ Lot 4
           </button>
-          <button
-            class="lot-button visible"
-            id="lot5"
-            data-category="lots"
-            type="button"
-          >
+          <button class="lot-button visible" id="lot5" data-category="lots" type="button">
             🅿️ Extra Lot
           </button>
 
-          <button
-            class="lot-button feature-firstaid"
-            id="firstaid"
-            data-category="firstaid"
-            type="button"
-          >
+          <button class="lot-button feature-firstaid" id="firstaid" data-category="firstaid" type="button">
             ⛑
           </button>
 
-          <!-- <button
-            class="lot-button feature-restroom-2"
-            id="restroom2"
-            data-category="restroom"
-            type="button"
-          >
-            🚻
-          </button>
-
-          <button
-            class="lot-button feature-restroom-3"
-            id="restroom3"
-            data-category="restroom"
-            type="button"
-          >
-            🚻
-          </button> -->
-          <button
-            class="lot-button feature-merch"
-            data-category="merch"
-            type="button"
-            id="merch"
-          >
+          <button class="lot-button feature-merch" data-category="merch" type="button" id="merch">
             👕
           </button>
-          <button
-            class="lot-button feature-food"
-            data-category="food"
-            type="button"
-            id="food"
-          >
+          <button class="lot-button feature-food" data-category="food" type="button" id="food">
             🍔
           </button>
-          <button
-            class="lot-button feature-checkin"
-            data-category="checkin"
-            type="button"
-            id="checkin"
-          >
+          <button class="lot-button feature-checkin" data-category="checkin" type="button" id="checkin">
             📍
           </button>
 
-          <button
-            class="lot-button feature-family-checkin"
-            data-category="family-checkin"
-            type="button"
-            id="family-checkin"
-          >
+          <button class="lot-button feature-family-checkin" data-category="family-checkin" type="button"
+            id="family-checkin">
             👪
           </button>
         </div>
@@ -184,10 +102,8 @@
         </button>
         <div class="accordion-content">
           <p>
-            <strong
-              >What is the difference between graduation and
-              Commencement?</strong
-            >
+            <strong>What is the difference between graduation and
+              Commencement?</strong>
           </p>
           <ul>
             <li>
@@ -201,22 +117,14 @@
               year at the end of the Spring semester. To participate in
               Commencement, students must have filed for graduation by the
               established
-              <a
-                href="https://www.csi.cuny.edu/students/registrar/apply-graduation"
-                target="_blank"
-                >deadlines.</a
-              >
+              <a href="https://www.csi.cuny.edu/students/registrar/apply-graduation" target="_blank">deadlines.</a>
             </li>
           </ul>
           <p>Graduation and Commencement are NOT the same.</p>
           <p>
             To participate in Commencement, students must have filed for
             graduation by the established
-            <a
-              href="https://www.csi.cuny.edu/students/registrar/apply-graduation"
-              target="_blank"
-              >deadlines</a
-            >.
+            <a href="https://www.csi.cuny.edu/students/registrar/apply-graduation" target="_blank">deadlines</a>.
           </p>
           <p>
             For students to “graduate” and receive their diploma, they must have
@@ -225,11 +133,8 @@
           </p>
           <p>
             As a reminder, you must
-            <a
-              href="https://cunyithelp.cuny.edu/csp?id=cuny_kb_article_find_answer&sys_id=4ebd66e01b06909014a8c99f1d4bcb74"
-              target="_blank"
-              >apply for graduation</a
-            >
+            <a href="https://cunyithelp.cuny.edu/csp?id=cuny_kb_article_find_answer&sys_id=4ebd66e01b06909014a8c99f1d4bcb74"
+              target="_blank">apply for graduation</a>
             to initiate the official review of your records to determine whether
             you have satisfied all of the requirements and will be eligible to
             receive your degree.
@@ -265,25 +170,18 @@
           <p>
             For instructions on how to apply and to view your application
             status, click
-            <a
-              href="https://cunyithelp.cuny.edu/csp?id=cuny_kb_article_find_answer&sys_id=4ebd66e01b06909014a8c99f1d4bcb74"
-              target="_blank"
-              >here.</a
-            >
+            <a href="https://cunyithelp.cuny.edu/csp?id=cuny_kb_article_find_answer&sys_id=4ebd66e01b06909014a8c99f1d4bcb74"
+              target="_blank">here.</a>
           </p>
           <p>
             If you experience issues applying online via CUNYfirst, please email
-            <a href="mailto:degreeaudit@csi.cuny.edu"
-              >degreeaudit@csi.cuny.edu</a
-            >.
+            <a href="mailto:degreeaudit@csi.cuny.edu">degreeaudit@csi.cuny.edu</a>.
           </p>
 
           <br />
           <p>
-            <strong
-              >Am I eligible to participate in the Commencement
-              ceremony?</strong
-            >
+            <strong>Am I eligible to participate in the Commencement
+              ceremony?</strong>
           </p>
           <p>
             The college holds one Commencement each academic year—at the end of
@@ -368,18 +266,14 @@
 
           <p><strong>Important Details:</strong></p>
           <p>
-            <strong
-              >Don’t wait until the last minute! You are encouraged to purchase
+            <strong>Don’t wait until the last minute! You are encouraged to purchase
               and pick up your regalia during the first week of the Pop-Up
-              Shop.</strong
-            >
+              Shop.</strong>
             As Commencement approaches, we will likely start running out of some
             of the sizing ranges and cannot guarantee we will have your height
             range in stock.
-            <strong
-              >Cap and gown regalia come bundled together and cannot be sold
-              separately.</strong
-            >
+            <strong>Cap and gown regalia come bundled together and cannot be sold
+              separately.</strong>
           </p>
           <p>
             Please <strong>DO NOT iron your gown</strong> as it will damage the
@@ -393,10 +287,8 @@
             we may not be able to exchange it later.
           </p>
           <p>
-            <strong
-              >All sales are final. There are no refunds, and any exchanges need
-              to take place before May 28 and with the original receipt.</strong
-            >
+            <strong>All sales are final. There are no refunds, and any exchanges need
+              to take place before May 28 and with the original receipt.</strong>
           </p>
           <p>Stay tuned for details on the Online Commencement Spirit Shop!</p>
 
@@ -529,11 +421,8 @@
           <p>
             Special arrangements will be made for degree candidates with
             disabilities. If you require assistance, please complete this
-            <a
-              href="https://forms.office.com/pages/responsepage.aspx?id=s_BgbwZfCU6XFZiduozH2Dc39zXbpyhOu1e1xLuJsA5UMkdYV1E1TDRHWDlDVlpEN0tYSzMwUFgxMiQlQCN0PWcu&route=shorturl"
-              target="_blank"
-              >Accommodation Request Form</a
-            >. Contact the Office of Accessibility at
+            <a href="https://forms.office.com/pages/responsepage.aspx?id=s_BgbwZfCU6XFZiduozH2Dc39zXbpyhOu1e1xLuJsA5UMkdYV1E1TDRHWDlDVlpEN0tYSzMwUFgxMiQlQCN0PWcu&route=shorturl"
+              target="_blank">Accommodation Request Form</a>. Contact the Office of Accessibility at
             <a href="tel:7189822510">718.982.2510</a> or
             <a href="mailto:Access@csi.cuny.edu">Access@csi.cuny.edu</a> if you
             have additional questions.
@@ -645,9 +534,7 @@
           <p><strong>For Further Information</strong></p>
           <p>
             If you need additional information about Commencement, email
-            <a href="mailto:commencement@csi.cuny.edu"
-              >commencement@csi.cuny.edu</a
-            >
+            <a href="mailto:commencement@csi.cuny.edu">commencement@csi.cuny.edu</a>
             or call <a href="tel:7189822335">718.982.2335</a> during regular
             business hours.
           </p>
@@ -710,31 +597,17 @@
           <p class="creator">Created by <strong>Shahad Hossain</strong></p>
 
           <div class="social-links">
-            <a
-              href="https://www.linkedin.com/in/shahad-hossain-93bb3a305/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                class="social-icon"
-                aria-label="LinkedIn"
-              >
+            <a href="https://www.linkedin.com/in/shahad-hossain-93bb3a305/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" class="social-icon" aria-label="LinkedIn">
                 <path
-                  d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.67-.03-3.83-2.33-3.83-2.33 0-2.69 1.82-2.69 3.7V24H8z"
-                />
+                  d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.67-.03-3.83-2.33-3.83-2.33 0-2.69 1.82-2.69 3.7V24H8z" />
               </svg>
             </a>
 
-            <a
-              href="https://github.com/Shahad-Hossain"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://github.com/Shahad-Hossain" target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24" class="social-icon" aria-label="GitHub">
                 <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.39 1.23-3.23-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.92 1.23 3.23 0 4.6-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22 0 1.6-.02 2.88-.02 3.27 0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"
-                />
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.39 1.23-3.23-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.92 1.23 3.23 0 4.6-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22 0 1.6-.02 2.88-.02 3.27 0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
               </svg>
             </a>
           </div>
@@ -747,5 +620,6 @@
     </footer>
 
     <script src="index.js"></script>
-  </body>
+</body>
+
 </html>
