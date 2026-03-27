@@ -766,6 +766,7 @@ header {
 }
 
 @media (max-width: 300px) {
+
   .lot-button,
   .building-button {
     font-size: 6px;
