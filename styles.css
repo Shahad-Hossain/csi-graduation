@@ -331,7 +331,7 @@ header img {
   margin: 10px 0;
 }
 
-.info-panel > p strong {
+.info-panel>p strong {
   color: #b45309;
 }
 
@@ -383,11 +383,9 @@ header img {
   position: absolute;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.05) 0%,
-    transparent 60%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 60%);
   animation: footerGlow 8s linear infinite;
 }
 
@@ -468,19 +466,6 @@ header {
   position: relative;
 }
 
-.hamburger {
-  display: none;
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-
 /* Desktop Filter Panel */
 .filter-panel {
   width: 260px;
@@ -509,15 +494,6 @@ header {
   margin: 0;
   color: #003366;
   font-size: 18px;
-}
-
-.close-filter {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #666;
-  cursor: pointer;
 }
 
 .filter-options {
@@ -595,10 +571,12 @@ header {
   top: 57%;
   left: 33%;
 }
+
 .feature-merch {
   top: 57%;
   left: 50%;
 }
+
 .feature-restroom-1 {
   top: 63%;
   left: 60%;
@@ -618,20 +596,10 @@ header {
   top: 70%;
   left: 48%;
 }
+
 .feature-checkin {
   top: 57%;
   left: 74%;
-}
-
-.filter-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
 }
 
 #lot1 {
@@ -689,11 +657,31 @@ header {
     margin-top: 0px;
   }
 
+  .content-wrapper {
+    flex-direction: column;
+  }
+
   .content-wrapper aside {
     margin-top: 0px;
   }
+
   .map-wrapper {
+    width: 100%;
     padding-bottom: 0;
+    order: 1;
+  }
+
+  .filter-panel {
+    position: static;
+    width: 260px;
+    height: auto;
+    border-radius: 12px;
+    z-index: auto;
+    transition: none;
+    order: 2;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   #lot1 {
@@ -748,56 +736,6 @@ header {
     width: 90px;
   }
 
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .map-wrapper {
-    width: 100%;
-  }
-
-  /* Slide-out Mobile Menu */
-  .filter-panel {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 260px;
-    height: 100vh;
-    border-radius: 0;
-    z-index: 1000;
-    transition: left 0.3s ease-in-out;
-  }
-
-  .filter-panel.open {
-    left: 0;
-  }
-
-  .filter-overlay.active {
-    display: block;
-  }
-
-  .close-filter {
-    display: block;
-  }
-
-  .hamburger {
-    display: block;
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    left: auto;
-    font-size: 36px;
-    z-index: 1100;
-    background: #003366;
-    padding: 5px 10px;
-    border-radius: 8px;
-  }
-
-  /* Exact Map Positions */
   .feature-food {
     top: 66.5%;
     left: 53%;
@@ -809,7 +747,7 @@ header {
   }
 
   .feature-family-checkin {
-    top: 63%;
+    top: 71%;
     left: 42%;
   }
 
@@ -817,10 +755,12 @@ header {
     top: 64%;
     left: 35%;
   }
+
   .feature-merch {
     top: 66%;
     left: 48%;
   }
+
   .feature-restroom-1 {
     top: 71.5%;
     left: 60%;
@@ -837,30 +777,8 @@ header {
   }
 }
 
-@media (max-width: 600px) {
-  .lot-button,
-  .building-button {
-    font-size: 8px;
-    padding: 5px 7px;
-    border-width: 2px;
-    border-radius: 16px;
-  }
-
-  #lot4 {
-    left: 82%;
-  }
-
-  #lot5 {
-    left: 80.5%;
-  }
-
-  #lot6 {
-    top: 68%;
-    left: 58%;
-  }
-}
-
 @media (max-width: 300px) {
+
   .lot-button,
   .building-button {
     font-size: 6px;
