@@ -120,3 +120,15 @@ function clearAll() {
     el.classList.remove("visible");
   });
 }
+
+function commencementAlert() {
+  alert( 
+    "The individual computer science commencement is held at the 1P building. Families are encouraged to walk to 1P early to grab the best seat. Tickets are not required!"
+  );
+}
+
+function lotFourAlert() {
+  alert( 
+    "Warning: If you are coming in from the Victory BLVD entrance do not take the first right Google Maps says! Go until you see gravel at the lot closest to the 1N building."
+  );
+}

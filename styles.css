@@ -614,6 +614,14 @@ header {
   color: white;
 }
 
+#commencementBuilding {
+  top: 62.5%;
+  left: 57.8%;
+  color: white;
+  background: linear-gradient(135deg, rgb(255, 75, 75), rgb(204, 0, 0));
+  animation: 2s ease 0s infinite normal none running pulse;
+}
+
 @media (max-width: 790px) {
   #lot2 {
     top: 74%;
@@ -641,6 +649,10 @@ header {
 /* Mobile Layout */
 
 @media (max-width: 768px) {
+  #commencementBuilding {
+    top: 71%;
+  }
+
   .info-panel {
     margin-top: 0px;
   }
