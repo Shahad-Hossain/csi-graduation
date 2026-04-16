@@ -29,11 +29,36 @@
               <input
                 type="checkbox"
                 class="filter-checkbox"
+                value="commencement"
+                checked
+              />
+              🎓 Commencement
+            </label>
+
+            <label class="filter-label">
+              <input
+                type="checkbox"
+                class="filter-checkbox"
                 value="lots"
                 checked
               />
               🅿️ Parking Lots
             </label>
+
+            <label class="filter-label">
+              <input type="checkbox" class="filter-checkbox" value="checkin" />
+              📍 Graduates Check-In
+            </label>
+
+            <label class="filter-label">
+              <input
+                type="checkbox"
+                class="filter-checkbox"
+                value="family-checkin"
+              />
+              👪 Family Check-In
+            </label>
+
             <label class="filter-label">
               <input type="checkbox" class="filter-checkbox" value="firstaid" />
               ⛑ First Aid
@@ -50,18 +75,6 @@
               <input type="checkbox" class="filter-checkbox" value="restroom" />
               🚻 Restrooms
             </label> -->
-            <label class="filter-label">
-              <input type="checkbox" class="filter-checkbox" value="checkin" />
-              📍 Graduates Check-In
-            </label>
-            <label class="filter-label">
-              <input
-                type="checkbox"
-                class="filter-checkbox"
-                value="family-checkin"
-              />
-              👪 Family Check-In
-            </label>
 
             <button onclick="clearAll()" class="clear-btn">Clear All</button>
           </div>
@@ -100,6 +113,7 @@
             id="lot4"
             data-category="lots"
             type="button"
+            onclick="lotFourAlert()"
           >
             🅿️ Lot 4
           </button>
@@ -113,12 +127,31 @@
           </button>
 
           <button
+            class="lot-button visible"
+            data-category="commencement"
+            type="button"
+            id="commencementBuilding"
+            onclick="commencementAlert()"
+          >
+            📍 1P
+          </button>
+
+          <button
             class="lot-button feature-firstaid"
             id="firstaid"
             data-category="firstaid"
             type="button"
           >
             ⛑
+          </button>
+
+          <button
+            class="lot-button feature-family-checkin"
+            data-category="family-checkin"
+            type="button"
+            id="family-checkin"
+          >
+            👪
           </button>
 
           <!-- <button
@@ -161,15 +194,6 @@
             id="checkin"
           >
             📍
-          </button>
-
-          <button
-            class="lot-button feature-family-checkin"
-            data-category="family-checkin"
-            type="button"
-            id="family-checkin"
-          >
-            👪
           </button>
         </div>
       </div>
