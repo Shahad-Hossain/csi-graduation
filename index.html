@@ -1,150 +1,101 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSI Commencement Directions</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/x-icon" href="img/icon.jpg" />
-  </head>
 
-  <body>
-    <header>
-      <img src="img/logo.png" alt="College of Staten Island Logo" />
-      <h1>Computer Science CSI Commencement Instructions</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSI Commencement Directions</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/x-icon" href="img/icon.jpg" />
+</head>
 
-    <div class="filter-overlay" id="filterOverlay"></div>
+<body>
+  <header>
+    <img src="img/logo.png" alt="College of Staten Island Logo" />
+    <h1>Computer Science CSI Commencement Instructions</h1>
+  </header>
 
-    <div class="container">
-      <div class="content-wrapper">
-        <aside class="filter-panel" id="filterPanel">
-          <div class="filter-header">
-            <h3>Map Filters</h3>
-          </div>
-          <div class="filter-options">
-            <label class="filter-label">
-              <input
-                type="checkbox"
-                class="filter-checkbox"
-                value="commencement"
-                checked
-              />
-              🎓 Commencement
-            </label>
+  <div class="filter-overlay" id="filterOverlay"></div>
 
-            <label class="filter-label">
-              <input
-                type="checkbox"
-                class="filter-checkbox"
-                value="lots"
-                checked
-              />
-              🅿️ Parking Lots
-            </label>
+  <div class="container">
+    <div class="content-wrapper">
+      <aside class="filter-panel" id="filterPanel">
+        <div class="filter-header">
+          <h3>Map Filters</h3>
+        </div>
+        <div class="filter-options">
+          <label class="filter-label">
+            <input type="checkbox" class="filter-checkbox" value="commencement" checked />
+            🎓 Commencement
+          </label>
 
-            <label class="filter-label">
-              <input type="checkbox" class="filter-checkbox" value="checkin" />
-              📍 Graduates Check-In
-            </label>
+          <label class="filter-label">
+            <input type="checkbox" class="filter-checkbox" value="lots" checked />
+            🅿️ Parking Lots
+          </label>
 
-            <label class="filter-label">
-              <input type="checkbox" class="filter-checkbox" value="firstaid" />
-              ⛑ First Aid
-            </label>
-            <label class="filter-label">
-              <input type="checkbox" class="filter-checkbox" value="merch" />
-              👕 Merch Tents
-            </label>
-            <label class="filter-label">
-              <input type="checkbox" class="filter-checkbox" value="food" />
-              🍔 Food
-            </label>
-            <!-- <label class="filter-label">
+          <label class="filter-label">
+            <input type="checkbox" class="filter-checkbox" value="checkin" />
+            📍 Graduates Check-In
+          </label>
+
+          <label class="filter-label">
+            <input type="checkbox" class="filter-checkbox" value="firstaid" />
+            ⛑ First Aid
+          </label>
+          <label class="filter-label">
+            <input type="checkbox" class="filter-checkbox" value="merch" />
+            👕 Merch Tents
+          </label>
+          <label class="filter-label">
+            <input type="checkbox" class="filter-checkbox" value="food" />
+            🍔 Food
+          </label>
+          <!-- <label class="filter-label">
               <input type="checkbox" class="filter-checkbox" value="restroom" />
               🚻 Restrooms
             </label> -->
 
 
-            <button onclick="clearAll()" class="clear-btn">Clear All</button>
-          </div>
-        </aside>
+          <button onclick="clearAll()" class="clear-btn">Clear All</button>
+        </div>
+      </aside>
 
-        <div class="map-wrapper" id="mapWrapper">
-          <img src="img/campus map.png" alt="CSI Campus Map" />
-          <svg class="arrow-layer" id="arrowLayer"></svg>
+      <div class="map-wrapper" id="mapWrapper">
+        <img src="img/campus map.png" alt="CSI Campus Map" />
+        <svg class="arrow-layer" id="arrowLayer"></svg>
 
-          <button
-            class="lot-button visible"
-            id="lot1"
-            data-category="lots"
-            type="button"
-          >
-            🅿️ Lot 1
-          </button>
-          <button
-            class="lot-button visible"
-            id="lot2"
-            data-category="lots"
-            type="button"
-          >
-            🅿️ Lot 2
-          </button>
-          <button
-            class="lot-button visible"
-            id="lot3"
-            data-category="lots"
-            type="button"
-          >
-            🅿️ Lot 3
-          </button>
-          <button
-            class="lot-button visible"
-            id="lot4"
-            data-category="lots"
-            type="button"
-            onclick="lotFourAlert()"
-          >
-            🅿️ Lot 4
-          </button>
-          <button
-            class="lot-button visible"
-            id="lot5"
-            data-category="lots"
-            type="button"
-          >
-            🅿️ Extra Lot
-          </button>
+        <button class="lot-button visible" id="lot1" data-category="lots" type="button">
+          🅿️ Lot 1
+        </button>
+        <button class="lot-button visible" id="lot2" data-category="lots" type="button">
+          🅿️ Lot 2
+        </button>
+        <button class="lot-button visible" id="lot3" data-category="lots" type="button">
+          🅿️ Lot 3
+        </button>
+        <button class="lot-button visible" id="lot4" data-category="lots" type="button" onclick="lotFourAlert()">
+          🅿️ Lot 4
+        </button>
+        <button class="lot-button visible" id="lot5" data-category="lots" type="button">
+          🅿️ Extra Lot
+        </button>
 
-          <button
-            class="lot-button visible"
-            data-category="commencement"
-            type="button"
-            id="commencementBuilding"
-            onclick="commencementAlert()"
-          >
-            📍 1P
-          </button>
+        <button class="lot-button visible" data-category="commencement" type="button" id="commencementBuilding"
+          onclick="commencementAlert()">
+          📍 1P
+        </button>
 
-          <button
-            class="lot-button feature-firstaid"
-            id="firstaid"
-            data-category="firstaid"
-            type="button"
-          >
-            ⛑
-          </button>
+        <button class="lot-button feature-firstaid" id="firstaid" data-category="firstaid" type="button">
+          ⛑
+        </button>
 
-          <button
-            class="lot-button feature-family-checkin"
-            data-category="family-checkin"
-            type="button"
-            id="family-checkin"
-          >
-            👪
-          </button>
+        <button class="lot-button feature-family-checkin" data-category="family-checkin" type="button"
+          id="family-checkin">
+          👪
+        </button>
 
-          <!-- <button
+        <!-- <button
             class="lot-button feature-restroom-2"
             id="restroom2"
             data-category="restroom"
@@ -161,605 +112,361 @@
           >
             🚻
           </button> -->
-          <button
-            class="lot-button feature-merch"
-            data-category="merch"
-            type="button"
-            id="merch"
-          >
-            👕
-          </button>
-          <button
-            class="lot-button feature-food"
-            data-category="food"
-            type="button"
-            id="food"
-          >
-            🍔
-          </button>
-          <button
-            class="lot-button feature-checkin"
-            data-category="checkin"
-            type="button"
-            id="checkin"
-          >
-            📍
-          </button>
-        </div>
+        <button class="lot-button feature-merch" data-category="merch" type="button" id="merch">
+          👕
+        </button>
+        <button class="lot-button feature-food" data-category="food" type="button" id="food">
+          🍔
+        </button>
+        <button class="lot-button feature-checkin" data-category="checkin" type="button" id="checkin">
+          📍
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info panel -->
+  <div class="info-panel">
+    <h2>Commencement Information</h2>
+    <div class="accordion">
+
+      <button class="accordion-btn">
+        📸 Senior Portraits
+      </button>
+      <div class="accordion-content">
+        <img src="/img/portrait.png" alt="CSI Senior Portraits and Regalia Pop-Up Shop Flyer" class="accordion-image">
+      </div>
+
+      <button class="accordion-btn" type="button">
+        🏛️ Guidelines for Commencement
+      </button>
+      <div class="accordion-content">
+        <p><strong>To all Candidates for Graduation and Guests:</strong></p>
+        <p>
+          The College of Staten Island is excited to celebrate its 77th Commencement.
+          To make this event a positive experience for everyone, all attendees deserve
+          a safe, orderly, and dignified ceremony.
+        </p>
+        <p>
+          Please be sure to review and follow these important Commencement Guidelines
+          for the safety and enjoyment of everyone. We appreciate your cooperation.
+        </p>
+
+        <br />
+        <p><strong>CANDIDATES for graduation:</strong></p>
+        <ul>
+          <li>
+            <strong>Expectations:</strong> Attending graduates are expected to be
+            respectful of fellow graduates, guests, faculty, and staff so the ceremony
+            can run smoothly. All candidates remain CSI students until their degrees
+            are officially conferred and must follow all applicable college policies.
+          </li>
+          <li>
+            <strong>Prohibited Items:</strong> Noise‐making devices of any kind,
+            including air horns, drums, and alarms. Signs, banners, flags, and balloons.
+          </li>
+          <li>
+            <strong>Important Information:</strong> Students are required to follow
+            the public‐order rules outlined in Article 129a (the Henderson Rules),
+            and violations of commencement guidelines may result in disciplinary
+            referral and could delay the posting of their degree.
+          </li>
+        </ul>
+
+        <br />
+        <p><strong>GUESTS attending Commencement:</strong></p>
+        <ul>
+          <li>
+            <strong>Prohibited Items:</strong> Bags, backpacks, purses. Noise‐making
+            devices of any kind, including air horns, drums, and alarms. Signs, banners,
+            flags, and balloons.
+          </li>
+          <li>
+            <strong>Permitted Bags:</strong> There are two options of approved bags
+            that may be carried into the ceremony area: One-gallon clear plastic
+            freezer bag (Ziploc bag or similar); or small clutch purses, approximately
+            the size of a hand, or 4.5″ x 6.5″ with or without a handle or strap.
+          </li>
+          <li>
+            <strong>Families with Infants/Children:</strong> While diaper bags and
+            strollers are allowed for families with babies/toddlers, all items will
+            be checked.
+          </li>
+          <li>
+            <strong>Enforcement:</strong> Entry may be denied or items confiscated if
+            guests bring prohibited items into the ceremony area.
+          </li>
+        </ul>
+
+        <br />
+        <p>
+          <em>We appreciate your cooperation in making this a safe, respectful, and joyful celebration for
+            everyone.</em>
+        </p>
+      </div>
+
+      <button class="accordion-btn" type="button">
+        🌧️ Inclement Weather Plan
+      </button>
+      <div class="accordion-content">
+        <p>
+          The 77th Commencement Exercises of the College of Staten Island will be held <strong>rain or shine</strong>.
+          However, in the event of lightning, we will temporarily pause the ceremony.
+        </p>
+        <p>
+          If directed to proceed indoors by the College, please do not delay and move in an orderly fashion when exiting
+          the Great Lawn. Staff and Public Safety Officers will inform everyone once it is safe to return outdoors for
+          the ceremony to resume.
+        </p>
+
+        <br />
+        <p><strong>Pre-Procession Instructions (BEFORE the graduates enter the Great Lawn)</strong></p>
+        <p><em>Graduates on Alumni Walk:</em></p>
+        <ul>
+          <li>
+            Graduates lined up on the North Side of Alumni Walk (between the fountain and the Campus Center) should
+            proceed directly into the <strong>Campus Center</strong>.
+          </li>
+          <li>
+            Graduates lined up on the South Side of Alumni Walk (between the fountain and the Library) should proceed
+            directly into the <strong>Center for the Arts (1P)</strong>.
+          </li>
+        </ul>
+
+        <p><em>Guests seated on the Great Lawn:</em></p>
+        <p>Public Safety Officers will guide guests seated on the Great Lawn into building 1A or 2A, whichever is
+          closest to their seating location.</p>
+        <ul>
+          <li>
+            Those seated to the right of the main aisle should proceed into <strong>building 2A</strong>.
+          </li>
+          <li>
+            Those seated to the left of the main aisle should proceed into <strong>building 1A</strong>.
+          </li>
+        </ul>
+
+        <br />
+        <p><strong>Post-Procession Instructions (ALL graduates are seated on the Great Lawn)</strong></p>
+        <p><em>Graduates seated on the Great Lawn:</em></p>
+        <p>Graduates seated on the Great Lawn should proceed into building 1A or 2A, depending on their seating
+          location.</p>
+        <ul>
+          <li>
+            Those seated to the right of the main aisle should proceed into <strong>building 2A</strong>.
+          </li>
+          <li>
+            Those seated to the left of the main aisle should proceed into <strong>building 1A</strong>.
+          </li>
+        </ul>
+
+        <p><em>Guests seated on the Great Lawn:</em></p>
+        <ul>
+          <li>
+            Public Safety Officers will guide guests seated on the Great Lawn into the <strong>Center for the Arts
+              (1P)</strong> directly behind the seating area.
+          </li>
+        </ul>
+
+        <br />
+        <p>
+          <strong>*IMPORTANT*</strong> Please note that all buildings are multiple floors, and everyone is encouraged to
+          move into the buildings and proceed as they are able away from the doors so as not to obstruct access to
+          entrances and exits.
+        </p>
+      </div>
+      
+      <button class="accordion-btn" type="button">
+        🎟️ Guests - Instructions for the Commencement Ceremony
+      </button>
+      <div class="accordion-content">
+        <p><strong>The College-Wide Ceremony</strong></p>
+        <p>
+          The seventy-seventh Commencement of the College of Staten Island
+          will take place on Thursday, May 28, 2025, at 9:30 am at the College
+          of Staten Island – 2800 Victory Boulevard, Staten Island, New York.
+        </p>
+        <p>
+          The ceremony will be held outdoors on the Great Lawn, rain or shine.
+          In the case of severe weather, the College may opt to delay the
+          start of the ceremony. All attendees should check the weather before
+          arriving on campus and plan accordingly. A Commencement Day
+          Inclement Weather Plan will be posted closer to the date of the
+          ceremony.
+        </p>
+        <p>
+          The music prologue begins at 9:00 am, and the ceremony starts
+          promptly at 9:30 am; however, you are encouraged to arrive as early
+          as 8:15 am with your graduate since there will be limited parking
+          available and a high volume of traffic entering through the front
+          gate.
+        </p>
+
+        <br />
+        <p><strong>Tickets for Guests</strong></p>
+        <p>
+          Tickets are not required for guests to attend the College-wide
+          ceremony on the Great Lawn. Please be mindful that seating is
+          extremely limited and available on a first-come, first-served basis.
+        </p>
+
+        <br />
+        <p><strong>Parking & Transportation Information</strong></p>
+        <p>
+          Please be mindful that parking is extremely limited and will be
+          available at all marked lots on campus. Try to make every effort to
+          carpool to the College. Please convey this to your guests as well.
+        </p>
+        <p>
+          The Great Lawn, where the College-wide Commencement Ceremony will be
+          held, is a considerable walk from the College’s parking lots (see
+          campus map). Therefore, comfortable footwear is recommended.
+        </p>
+
+        <br />
+        <p><strong>MTA</strong></p>
+        <p>
+          MTA buses (including the S93) will stop at the main gate on Victory
+          Boulevard. The S93 will be dropping off and picking up at the front
+          gate only from the start of their schedule until 3:00pm.
+        </p>
+
+        <br />
+        <p><strong>Rideshare</strong></p>
+        <p>
+          Students and guests using rideshare services (e.g., Uber, Lyft, or
+          car services) to travel to or from campus for the Commencement
+          ceremony should direct their drivers to Parking Lot 1, located
+          directly behind Building 2A. This area is designated exclusively for
+          drop-off and pick-up.
+        </p>
+
+        <br />
+        <p><strong>Commencement Program</strong></p>
+        <p>
+          Commencement programs will be distributed to graduates and their
+          guests on Commencement Day. It will feature a QR code with a link to
+          the Commencement booklet listing all degree candidates.
+        </p>
+
+        <br />
+        <p><strong>Guests with Accessibility Requests</strong></p>
+        <p>
+          Guests with mobility concerns should inquire at the entrance gates
+          about special on-campus transportation. They will be directed to a
+          designated drop-off point where they and one companion can access
+          special transportation to and from the ceremony site. If a
+          particular need should arise while on campus, please notify a
+          uniformed Public Safety Officer.
+        </p>
+        <p>
+          For other accommodation requests, please contact the Office of
+          Accessibility Services at
+          <a href="tel:7189822510">718.982.2510</a> or
+          <a href="mailto:Access@csi.cuny.edu">Access@csi.cuny.edu</a>.
+        </p>
+
+        <br />
+        <p><strong>Livestream</strong></p>
+        <p>
+          The Commencement Ceremony will be livestreamed. There will be
+          several camera feeds so your family and friends at home or abroad
+          will enjoy a high-quality experience. Open captioning will be
+          available.
+        </p>
+        <p>
+          The livestream link will be on the CSI website by 9:00 am on May 28.
+        </p>
+
+        <br />
+        <p><strong>For Further Information</strong></p>
+        <p>
+          If you need additional information about Commencement, email
+          <a href="mailto:commencement@csi.cuny.edu">commencement@csi.cuny.edu</a>
+          or call <a href="tel:7189822335">718.982.2335</a> during regular
+          business hours.
+        </p>
       </div>
     </div>
 
-    <!-- Info panel -->
-    <div class="info-panel">
-      <h2>Commencement Information</h2>
-      <div class="accordion">
-        <button class="accordion-btn" type="button">
-          🎓 Instructions for Graduation
-        </button>
-        <div class="accordion-content">
-          <p>
-            <strong
-              >What is the difference between graduation and
-              Commencement?</strong
-            >
-          </p>
-          <ul>
-            <li>
-              <strong>Graduation</strong> is the process of applying for
-              completion of your degree program via CUNYfirst through the
-              Registrar’s Office.
-            </li>
-            <li>
-              <strong>Commencement</strong> refers to the ceremony for graduates
-              on May 28, 2026. There is one Commencement ceremony each academic
-              year at the end of the Spring semester. To participate in
-              Commencement, students must have filed for graduation by the
-              established
-              <a
-                href="https://www.csi.cuny.edu/students/registrar/apply-graduation"
-                target="_blank"
-                >deadlines.</a
-              >
-            </li>
-          </ul>
-          <p>Graduation and Commencement are NOT the same.</p>
-          <p>
-            To participate in Commencement, students must have filed for
-            graduation by the established
-            <a
-              href="https://www.csi.cuny.edu/students/registrar/apply-graduation"
-              target="_blank"
-              >deadlines</a
-            >.
-          </p>
-          <p>
-            For students to “graduate” and receive their diploma, they must have
-            successfully completed all courses and have met all degree
-            requirements.
-          </p>
-          <p>
-            As a reminder, you must
-            <a
-              href="https://cunyithelp.cuny.edu/csp?id=cuny_kb_article_find_answer&sys_id=4ebd66e01b06909014a8c99f1d4bcb74"
-              target="_blank"
-              >apply for graduation</a
-            >
-            to initiate the official review of your records to determine whether
-            you have satisfied all of the requirements and will be eligible to
-            receive your degree.
-          </p>
-          <p>
-            Spring and Summer 2026 graduates are invited to participate in the
-            Commencement ceremony even though final grades or requirements may
-            not yet be complete if they have filed for graduation by the
-            deadline (March 1, 2026) for those semesters.
-          </p>
+    <h2>Parking Lot Information</h2>
 
-          <br />
-          <p><strong>Apply for Graduation</strong></p>
-          <p>
-            Students are eligible to apply for graduation once they have earned
-            45 credits towards an associate's degree, 94 credits towards a
-            bachelor's degree, and at any point at the graduate level. Students
-            should apply for graduation before the deadline in the semester they
-            will complete their final requirements: see Graduation Application
-            Deadlines below.
-          </p>
-          <ul>
-            <li>
-              The deadline to file for fall 2025 graduation was October 1, 2025.
-            </li>
-            <li>
-              The deadline to file for spring 2026 graduation is March 1, 2026.
-            </li>
-            <li>
-              The deadline to file for summer 2026 graduation is July 1, 2026.
-            </li>
-          </ul>
-          <p>
-            For instructions on how to apply and to view your application
-            status, click
-            <a
-              href="https://cunyithelp.cuny.edu/csp?id=cuny_kb_article_find_answer&sys_id=4ebd66e01b06909014a8c99f1d4bcb74"
-              target="_blank"
-              >here.</a
-            >
-          </p>
-          <p>
-            If you experience issues applying online via CUNYfirst, please email
-            <a href="mailto:degreeaudit@csi.cuny.edu"
-              >degreeaudit@csi.cuny.edu</a
-            >.
-          </p>
-
-          <br />
-          <p>
-            <strong
-              >Am I eligible to participate in the Commencement
-              ceremony?</strong
-            >
-          </p>
-          <p>
-            The college holds one Commencement each academic year—at the end of
-            the spring semester. Students who will complete their degree
-            requirements in fall 2025, winter 2026, spring 2026, or summer 2026
-            are eligible to participate in the May 28, 2026 ceremony.
-          </p>
-        </div>
-
-        <button class="accordion-btn">
-          📸 Preparing for the Commencement Ceremony
-        </button>
-        <div class="accordion-content">
-          <p><strong>Senior Portraits</strong></p>
-          <p>
-            Capture your special moment with graduation pictures taken by
-            Picture This, CSI’s official senior portrait photographer.
-          </p>
-          <p>SITTINGS ARE BY APPOINTMENT ONLY.</p>
-          <ul>
-            <li>
-              <strong>When:</strong> Monday, 4/6 through Wednesday, 4/15
-              (appointments available 9am-7pm)
-            </li>
-            <li><strong>Where:</strong> Campus Center, 1C-215</li>
-            <li><strong>Cost:</strong> $10 sitting fee</li>
-            <li>
-              <strong>Payment Methods:</strong> Cash, money orders, or checks
-              (payable to CSIA) are accepted.
-            </li>
-            <li>
-              <strong>How to schedule your appointment:</strong> Contact Picture
-              This at <a href="tel:7184474607">718.447.4607</a>, weekdays during
-              business hours.
-            </li>
-          </ul>
-          <p><strong>Notes:</strong></p>
-          <ul>
-            <li>
-              Cap & gown poses, as well as your own attire included in your
-              sitting.
-            </li>
-            <li>Limited graduation regalia will be available to use.</li>
-            <li>Photos cannot be corrected or retouched.</li>
-            <li>
-              Don’t delay! Schedule your appointment NOW to guarantee
-              availability.
-            </li>
-            <li>
-              In-studio appointments are also available. Contact Picture This
-              for more information!
-            </li>
-          </ul>
-
-          <br />
-          <p><strong>Regalia and Spirit Gear Pop-Up Shop</strong></p>
-          <p><strong>When:</strong></p>
-          <ul>
-            <li>Tuesday 5/12: 12-8pm</li>
-            <li>Wednesday 5/13: 12-5pm</li>
-            <li>Thursday 5/14: 12-5pm</li>
-            <li>Tuesday 5/19: 12-8pm</li>
-            <li>Wednesday 5/20: 12-5pm</li>
-            <li>Wednesday 5/27: 12-8pm</li>
-          </ul>
-          <p>
-            <strong>Where:</strong> Building 3A – First Floor, Dolphin Services
-          </p>
-          <p><strong>Cost:</strong></p>
-          <ul>
-            <li>Undergraduate (cap, gown, and tassel) package: $40</li>
-            <li>Graduate (cap, gown, hood, and tassel) package: $55</li>
-            <li>CSI Commencement Stole: $12</li>
-            <li>CSI 2025 Tassel: $5</li>
-          </ul>
-          <p><strong>How to Pay:</strong></p>
-          <p>
-            NEW this year – Students can now use Tap and Pay and Apple Wallet!
-            Students may purchase regalia and spirit gear via Finbucks, credit
-            card, check, or money order. Cash is NOT accepted.
-          </p>
-
-          <p><strong>Important Details:</strong></p>
-          <p>
-            <strong
-              >Don’t wait until the last minute! You are encouraged to purchase
-              and pick up your regalia during the first week of the Pop-Up
-              Shop.</strong
-            >
-            As Commencement approaches, we will likely start running out of some
-            of the sizing ranges and cannot guarantee we will have your height
-            range in stock.
-            <strong
-              >Cap and gown regalia come bundled together and cannot be sold
-              separately.</strong
-            >
-          </p>
-          <p>
-            Please <strong>DO NOT iron your gown</strong> as it will damage the
-            gown, and you will have to purchase another package. To get out any
-            wrinkles you can use a steamer or hang up the gown in your bathroom
-            before taking a hot shower so the steam can release the wrinkles.
-          </p>
-          <p>
-            Exchanges can only be made for gowns that were purchased in their
-            accurate height range. If you buy a gown outside your height range,
-            we may not be able to exchange it later.
-          </p>
-          <p>
-            <strong
-              >All sales are final. There are no refunds, and any exchanges need
-              to take place before May 28 and with the original receipt.</strong
-            >
-          </p>
-          <p>Stay tuned for details on the Online Commencement Spirit Shop!</p>
-
-          <br />
-          <p><strong>Graduation Survey</strong></p>
-          <p>
-            Please complete a brief <strong>Graduation Survey</strong> that asks
-            about your experiences at CSI and how your college education
-            prepared you for your career path.
-          </p>
-          <p>
-            The survey is accessible in your To Do List on CUNYfirst. To access
-            the survey, follow the steps below:
-          </p>
-          <ol>
-            <li>Sign into CUNYfirst</li>
-            <li>Click on the Student Center</li>
-            <li>Click on Tasks and Holds</li>
-            <li>Choose the Graduation Survey from the To Do List</li>
-            <li>
-              Complete the survey (You’ll know it is complete because it will no
-              longer appear on your graduation checklist).
-            </li>
-          </ol>
-        </div>
-
-        <button class="accordion-btn" type="button">
-          🏛️ Candidates - Instructions for the Commencement Ceremony
-        </button>
-        <div class="accordion-content">
-          <p>
-            The seventy-seventh Commencement of the College of Staten Island
-            will take place on Thursday, May 28, 2026, at 9:30 am. Candidates
-            should be at the College by 8:15 am to participate in this ceremony.
-          </p>
-
-          <br />
-          <p><strong>Reporting Locations</strong></p>
-          <p>
-            All graduates should report to Alumni Walk, located between the
-            campus center and the library (see campus map),
-            <strong>with the exception of</strong> the following:
-          </p>
-          <ul>
-            <li>
-              <strong>School of Business:</strong> Report to the front of
-              building 3N
-            </li>
-            <li>
-              <strong>School of Education:</strong> Report to the front of
-              building 3S
-            </li>
-            <li>
-              <strong>Social Work Department:</strong> Report to the front of
-              building 2A
-            </li>
-            <li>
-              <strong>Mathematics Department:</strong> Report to the front of
-              building 1S
-            </li>
-            <li>
-              <strong>Chemistry Department:</strong> Report to the front of
-              building 6S
-            </li>
-            <li>
-              <strong>English Department:</strong> Report to the front of
-              building 2S
-            </li>
-          </ul>
-
-          <p>
-            The Commencement Ceremony will be livestreamed. There will be
-            several camera feeds, so your family and friends at home or abroad
-            will enjoy a high-quality experience. Open captioning will be
-            available. The livestream link will appear on the CSI website by
-            9:00 am on May 28.
-          </p>
-
-          <br />
-          <p><strong>Inclement Weather</strong></p>
-          <p>
-            The Commencement ceremony is held outdoors on the Great Lawn, rain
-            or shine. In the case of severe weather, the College may opt to
-            delay the start of the ceremony. All attendees should check the
-            weather before arriving on campus and plan accordingly. A
-            Commencement Day Inclement Weather Plan will be posted closer to the
-            date of the ceremony.
-          </p>
-
-          <br />
-          <p><strong>Tickets for Guests</strong></p>
-          <p>
-            Tickets are not required for guests to attend the College-wide
-            ceremony on the Great Lawn. Please be mindful that seating is
-            extremely limited and available on a first-come, first-served basis.
-          </p>
-
-          <br />
-          <p><strong>Parking and Other Transportation Information</strong></p>
-          <p>
-            Please be mindful that parking is extremely limited and will be
-            available at all marked lots on campus. Try to make every effort to
-            carpool to the College. Please convey this to your guests as well.
-          </p>
-          <p>
-            The Great Lawn, where the College-wide Commencement Ceremony will be
-            held, is a considerable walk from the College’s parking lots (see
-            campus map). Therefore, comfortable footwear is recommended.
-          </p>
-
-          <ul>
-            <li>
-              <strong>MTA:</strong> MTA buses (including the S93) will stop at
-              the main gate on Victory Boulevard. The S93 will be dropping off
-              and picking up at the front gate only from the start of their
-              schedule until 3:00pm.
-            </li>
-            <li>
-              <strong>Rideshare:</strong> Students and guests using rideshare
-              services (e.g., Uber, Lyft, or car services) to travel to or from
-              campus for the Commencement ceremony should direct their drivers
-              to <strong>Parking Lot 1</strong>, located directly behind
-              Building 2A. This area is designated exclusively for drop-off and
-              pick-up.
-            </li>
-          </ul>
-
-          <br />
-          <p><strong>Students with Accessibility Requests</strong></p>
-          <p>
-            Special arrangements will be made for degree candidates with
-            disabilities. If you require assistance, please complete this
-            <a
-              href="https://forms.office.com/pages/responsepage.aspx?id=s_BgbwZfCU6XFZiduozH2Dc39zXbpyhOu1e1xLuJsA5UMkdYV1E1TDRHWDlDVlpEN0tYSzMwUFgxMiQlQCN0PWcu&route=shorturl"
-              target="_blank"
-              >Accommodation Request Form</a
-            >. Contact the Office of Accessibility at
-            <a href="tel:7189822510">718.982.2510</a> or
-            <a href="mailto:Access@csi.cuny.edu">Access@csi.cuny.edu</a> if you
-            have additional questions.
-          </p>
-        </div>
-        <button class="accordion-btn" type="button">
-          🎟️ Guests - Instructions for the Commencement Ceremony
-        </button>
-        <div class="accordion-content">
-          <p><strong>The College-Wide Ceremony</strong></p>
-          <p>
-            The seventy-seventh Commencement of the College of Staten Island
-            will take place on Thursday, May 28, 2025, at 9:30 am at the College
-            of Staten Island – 2800 Victory Boulevard, Staten Island, New York.
-          </p>
-          <p>
-            The ceremony will be held outdoors on the Great Lawn, rain or shine.
-            In the case of severe weather, the College may opt to delay the
-            start of the ceremony. All attendees should check the weather before
-            arriving on campus and plan accordingly. A Commencement Day
-            Inclement Weather Plan will be posted closer to the date of the
-            ceremony.
-          </p>
-          <p>
-            The music prologue begins at 9:00 am, and the ceremony starts
-            promptly at 9:30 am; however, you are encouraged to arrive as early
-            as 8:15 am with your graduate since there will be limited parking
-            available and a high volume of traffic entering through the front
-            gate.
-          </p>
-
-          <br />
-          <p><strong>Tickets for Guests</strong></p>
-          <p>
-            Tickets are not required for guests to attend the College-wide
-            ceremony on the Great Lawn. Please be mindful that seating is
-            extremely limited and available on a first-come, first-served basis.
-          </p>
-
-          <br />
-          <p><strong>Parking & Transportation Information</strong></p>
-          <p>
-            Please be mindful that parking is extremely limited and will be
-            available at all marked lots on campus. Try to make every effort to
-            carpool to the College. Please convey this to your guests as well.
-          </p>
-          <p>
-            The Great Lawn, where the College-wide Commencement Ceremony will be
-            held, is a considerable walk from the College’s parking lots (see
-            campus map). Therefore, comfortable footwear is recommended.
-          </p>
-
-          <br />
-          <p><strong>MTA</strong></p>
-          <p>
-            MTA buses (including the S93) will stop at the main gate on Victory
-            Boulevard. The S93 will be dropping off and picking up at the front
-            gate only from the start of their schedule until 3:00pm.
-          </p>
-
-          <br />
-          <p><strong>Rideshare</strong></p>
-          <p>
-            Students and guests using rideshare services (e.g., Uber, Lyft, or
-            car services) to travel to or from campus for the Commencement
-            ceremony should direct their drivers to Parking Lot 1, located
-            directly behind Building 2A. This area is designated exclusively for
-            drop-off and pick-up.
-          </p>
-
-          <br />
-          <p><strong>Commencement Program</strong></p>
-          <p>
-            Commencement programs will be distributed to graduates and their
-            guests on Commencement Day. It will feature a QR code with a link to
-            the Commencement booklet listing all degree candidates.
-          </p>
-
-          <br />
-          <p><strong>Guests with Accessibility Requests</strong></p>
-          <p>
-            Guests with mobility concerns should inquire at the entrance gates
-            about special on-campus transportation. They will be directed to a
-            designated drop-off point where they and one companion can access
-            special transportation to and from the ceremony site. If a
-            particular need should arise while on campus, please notify a
-            uniformed Public Safety Officer.
-          </p>
-          <p>
-            For other accommodation requests, please contact the Office of
-            Accessibility Services at
-            <a href="tel:7189822510">718.982.2510</a> or
-            <a href="mailto:Access@csi.cuny.edu">Access@csi.cuny.edu</a>.
-          </p>
-
-          <br />
-          <p><strong>Livestream</strong></p>
-          <p>
-            The Commencement Ceremony will be livestreamed. There will be
-            several camera feeds so your family and friends at home or abroad
-            will enjoy a high-quality experience. Open captioning will be
-            available.
-          </p>
-          <p>
-            The livestream link will be on the CSI website by 9:00 am on May 28.
-          </p>
-
-          <br />
-          <p><strong>For Further Information</strong></p>
-          <p>
-            If you need additional information about Commencement, email
-            <a href="mailto:commencement@csi.cuny.edu"
-              >commencement@csi.cuny.edu</a
-            >
-            or call <a href="tel:7189822335">718.982.2335</a> during regular
-            business hours.
-          </p>
-        </div>
+    <div class="accordion">
+      <button class="accordion-btn" type="button">🅿️ Lot 1</button>
+      <div class="accordion-content">
+        Leads to the front entrance, slightly elevated terrain, ~5-minute walk
       </div>
 
-      <h2>Parking Lot Information</h2>
-
-      <div class="accordion">
-        <button class="accordion-btn" type="button">🅿️ Lot 1</button>
-        <div class="accordion-content">
-          Leads to the front entrance, slightly elevated terrain, ~5-minute walk
-        </div>
-
-        <button class="accordion-btn" type="button">🅿️ Lot 2</button>
-        <div class="accordion-content">
-          Leads to the front entrance, slightly elevated terrain, ~5-minute walk
-        </div>
-
-        <button class="accordion-btn" type="button">🅿️ Lot 3</button>
-        <div class="accordion-content">
-          Leads to the back entrance, ~8-minute walk not preferred
-        </div>
-
-        <button class="accordion-btn" type="button">🅿️ Lot 4</button>
-        <div class="accordion-content">
-          Leads to the back entrance, ~5-minute walk
-        </div>
-
-        <button class="accordion-btn" type="button">🅿️ Extra Lot</button>
-        <div class="accordion-content">
-          Leads to the back entrance, ~5-minute walk.
-        </div>
+      <button class="accordion-btn" type="button">🅿️ Lot 2</button>
+      <div class="accordion-content">
+        Leads to the front entrance, slightly elevated terrain, ~5-minute walk
       </div>
 
-      <p>
-        <strong>Note:</strong> Click the parking lot buttons above for Google
-        Maps directions.
-      </p>
+      <button class="accordion-btn" type="button">🅿️ Lot 3</button>
+      <div class="accordion-content">
+        Leads to the back entrance, ~8-minute walk not preferred
+      </div>
 
-      <h3>Accessible Parking Directions</h3>
-      <ol>
-        <li>From the entrance of 1P, follow the road north.</li>
-        <li>Turn right onto the campus service road.</li>
-        <li>Take the second right turn.</li>
-        <li>Look for the Accessible Parking marking.</li>
-      </ol>
-      <p><strong>(Limited spots available)</strong></p>
+      <button class="accordion-btn" type="button">🅿️ Lot 4</button>
+      <div class="accordion-content">
+        Leads to the back entrance, ~5-minute walk
+      </div>
+
+      <button class="accordion-btn" type="button">🅿️ Extra Lot</button>
+      <div class="accordion-content">
+        Leads to the back entrance, ~5-minute walk.
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-left">
-          <img src="img/logo.png" alt="CSI Logo" class="footer-logo" />
-        </div>
+    <p>
+      <strong>Note:</strong> Click the parking lot buttons above for Google
+      Maps directions.
+    </p>
 
-        <div class="footer-center">
-          <p>CSI Computer Science Commencement Map</p>
-          <p class="creator">Created by <strong>Shahad Hossain</strong></p>
+    <h3>Accessible Parking Directions</h3>
+    <ol>
+      <li>From the entrance of 1P, follow the road north.</li>
+      <li>Turn right onto the campus service road.</li>
+      <li>Take the second right turn.</li>
+      <li>Look for the Accessible Parking marking.</li>
+    </ol>
+    <p><strong>(Limited spots available)</strong></p>
+  </div>
 
-          <div class="social-links">
-            <a
-              href="https://www.linkedin.com/in/shahad-hossain-93bb3a305/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                class="social-icon"
-                aria-label="LinkedIn"
-              >
-                <path
-                  d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.67-.03-3.83-2.33-3.83-2.33 0-2.69 1.82-2.69 3.7V24H8z"
-                />
-              </svg>
-            </a>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="img/logo.png" alt="CSI Logo" class="footer-logo" />
+      </div>
 
-            <a
-              href="https://github.com/Shahad-Hossain"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg viewBox="0 0 24 24" class="social-icon" aria-label="GitHub">
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.39 1.23-3.23-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.92 1.23 3.23 0 4.6-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22 0 1.6-.02 2.88-.02 3.27 0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
+      <div class="footer-center">
+        <p>CSI Computer Science Commencement Map</p>
+        <p class="creator">Created by <strong>Shahad Hossain</strong></p>
 
-        <div class="footer-right">
-          <p>© 2026 College of Staten Island</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/shahad-hossain-93bb3a305/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" class="social-icon" aria-label="LinkedIn">
+              <path
+                d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.67-.03-3.83-2.33-3.83-2.33 0-2.69 1.82-2.69 3.7V24H8z" />
+            </svg>
+          </a>
+
+          <a href="https://github.com/Shahad-Hossain" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" class="social-icon" aria-label="GitHub">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.43 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.39 1.23-3.23-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 013 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.92 1.23 3.23 0 4.6-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22 0 1.6-.02 2.88-.02 3.27 0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
         </div>
       </div>
-    </footer>
 
-    <script src="index.js"></script>
-  </body>
+      <div class="footer-right">
+        <p>© 2026 College of Staten Island</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
 </html>
