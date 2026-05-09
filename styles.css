@@ -564,7 +564,7 @@ header {
 
 .feature-family-checkin {
   top: 63%;
-  left: 42%;
+  left: 39.5%;
 }
 
 .feature-firstaid {
@@ -617,6 +617,14 @@ header {
 #commencementBuilding {
   top: 62.5%;
   left: 57.8%;
+  color: white;
+  background: linear-gradient(135deg, rgb(255, 75, 75), rgb(204, 0, 0));
+  animation: 2s ease 0s infinite normal none running pulse;
+}
+
+#greatLawn {
+  top: 63%;
+  left: 39.5%;
   color: white;
   background: linear-gradient(135deg, rgb(255, 75, 75), rgb(204, 0, 0));
   animation: 2s ease 0s infinite normal none running pulse;
@@ -751,6 +759,11 @@ header {
     left: 42%;
   }
 
+  #greatLawn {
+    top: 71%;
+    left: 42%;
+  }
+
   .feature-firstaid {
     top: 64%;
     left: 35%;
@@ -825,7 +838,7 @@ header {
 
 .accordion-image {
   display: block;
-  width: 100%;    
-  height: auto; 
-  max-width: 100%; 
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }

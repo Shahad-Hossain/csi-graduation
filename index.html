@@ -12,7 +12,7 @@
 <body>
   <header>
     <img src="img/logo.png" alt="College of Staten Island Logo" />
-    <h1>Computer Science CSI Commencement Instructions</h1>
+    <h1>CSI Computer Science Commencement Map</h1>
   </header>
 
   <div class="filter-overlay" id="filterOverlay"></div>
@@ -27,6 +27,11 @@
           <label class="filter-label">
             <input type="checkbox" class="filter-checkbox" value="commencement" checked />
             🎓 Commencement
+          </label>
+
+          <label class="filter-label">
+            <input type="checkbox" class="filter-checkbox" value="graduation" checked />
+              🎓 Main Graduation
           </label>
 
           <label class="filter-label">
@@ -51,10 +56,6 @@
             <input type="checkbox" class="filter-checkbox" value="food" />
             🍔 Food
           </label>
-          <!-- <label class="filter-label">
-              <input type="checkbox" class="filter-checkbox" value="restroom" />
-              🚻 Restrooms
-            </label> -->
 
 
           <button onclick="clearAll()" class="clear-btn">Clear All</button>
@@ -64,6 +65,8 @@
       <div class="map-wrapper" id="mapWrapper">
         <img src="img/campus map.png" alt="CSI Campus Map" />
         <svg class="arrow-layer" id="arrowLayer"></svg>
+
+
 
         <button class="lot-button visible" id="lot1" data-category="lots" type="button">
           🅿️ Lot 1
@@ -90,28 +93,14 @@
           ⛑
         </button>
 
-        <button class="lot-button feature-family-checkin" data-category="family-checkin" type="button"
+        <button class="lot-button visible feature-family-checkin" data-category="graduation" id="greatLawn" type="button">Graduation</button>
+
+        <!-- <button class="lot-button feature-family-checkin" data-category="family-checkin" type="button"
           id="family-checkin">
           👪
-        </button>
+        </button> -->
 
-        <!-- <button
-            class="lot-button feature-restroom-2"
-            id="restroom2"
-            data-category="restroom"
-            type="button"
-          >
-            🚻
-          </button>
 
-          <button
-            class="lot-button feature-restroom-3"
-            id="restroom3"
-            data-category="restroom"
-            type="button"
-          >
-            🚻
-          </button> -->
         <button class="lot-button feature-merch" data-category="merch" type="button" id="merch">
           👕
         </button>
@@ -131,7 +120,7 @@
     <div class="accordion">
 
       <button class="accordion-btn">
-        📸 Senior Portraits
+        📸 Pop Up Shop
       </button>
       <div class="accordion-content">
         <img src="img/portrait.png" alt="CSI Senior Portraits and Regalia Pop-Up Shop Flyer" class="accordion-image">
